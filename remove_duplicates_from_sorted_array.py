@@ -32,5 +32,5 @@ def validator(removeDuplicates, inputs, outputs):
 
     new_length = removeDuplicates(nums)
 
-    assert length == new_length
-    assert nums[:new_length] == expected
+    assert length == new_length, (length, new_length)
+    assert nums[:new_length] == expected, (nums[:new_length], expected)

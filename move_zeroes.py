@@ -26,7 +26,7 @@ tests = [
 ]
 
 
-def validator(moveZeroes, inputs, output):
+def validator(moveZeroes, inputs, expected):
     nums, = inputs
     moveZeroes(nums)
-    assert output == nums
+    assert nums == expected, (nums, expected)

@@ -28,5 +28,5 @@ tests = [
 def validator(intersect, inputs, expected):
     nums1, nums2 = inputs
     output = intersect(nums1, nums2)
-    assert len(output) == len(expected)
-    assert set(output) == set(expected)
+    assert len(output) == len(expected), (len(output), len(expected))
+    assert set(output) == set(expected), (set(output), set(expected))

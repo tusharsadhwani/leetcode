@@ -20,7 +20,7 @@ tests = [
 ]
 
 
-def validator(reverseString, inputs, output):
+def validator(reverseString, inputs, expected):
     nums, = inputs
     reverseString(nums)
-    assert output == nums
+    assert nums == expected, (nums, expected)

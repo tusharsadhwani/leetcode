@@ -19,7 +19,7 @@ tests = [
 ]
 
 
-def validator(rotate, inputs, output):
+def validator(rotate, inputs, expected):
     nums, k = inputs
     rotate(nums, k)
-    assert output == nums
+    assert nums == expected, (nums, expected)
