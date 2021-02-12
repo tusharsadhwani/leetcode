@@ -16,3 +16,17 @@ class Solution:
 
             index -= 1
             index_copy = index
+
+
+tests = [
+    (
+        ([0, 1, 0, 3, 12],),
+        [1, 3, 12, 0, 0],
+    ),
+]
+
+
+def validator(moveZeroes, inputs, output):
+    nums, = inputs
+    moveZeroes(nums)
+    assert output == nums
