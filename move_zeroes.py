@@ -1,3 +1,6 @@
+from typing import Callable
+
+
 class Solution:
     def moveZeroes(self, nums: list[int]) -> None:
         """
@@ -26,7 +29,11 @@ tests = [
 ]
 
 
-def validator(moveZeroes, inputs, expected):
+def validator(
+        moveZeroes: Callable[[list[int]], None],
+        inputs: tuple[list[int]],
+        expected: list[int]
+) -> None:
     nums, = inputs
     moveZeroes(nums)
     assert nums == expected, (nums, expected)

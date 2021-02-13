@@ -1,3 +1,6 @@
+from typing import Callable
+
+
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
         offset = 0
@@ -26,7 +29,11 @@ tests = [
 ]
 
 
-def validator(removeDuplicates, inputs, outputs):
+def validator(
+        removeDuplicates: Callable[[list[int]], int],
+        inputs: tuple[list[int]],
+        outputs: tuple[int, list[int]]
+) -> None:
     nums, = inputs
     length, expected = outputs
 

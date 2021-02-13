@@ -1,3 +1,6 @@
+from typing import Callable
+
+
 class Solution:
     def reverseString(self, s: list[str]) -> None:
         """
@@ -20,7 +23,11 @@ tests = [
 ]
 
 
-def validator(reverseString, inputs, expected):
+def validator(
+        reverseString: Callable[[list[str]], None],
+        inputs: tuple[list[str]],
+        expected: list[str]
+) -> None:
     nums, = inputs
     reverseString(nums)
     assert nums == expected, (nums, expected)

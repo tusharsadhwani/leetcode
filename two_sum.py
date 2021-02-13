@@ -33,6 +33,8 @@ class Solution:
                 if nums[complement_index] == complement:
                     return [index, complement_index]
 
+        return [-1, -1]
+
 
 tests = [
     (

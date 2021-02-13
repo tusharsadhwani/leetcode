@@ -1,3 +1,6 @@
+from typing import Callable
+
+
 class Solution:
     def rotate(self, nums: list[int], k: int) -> None:
         """
@@ -19,7 +22,11 @@ tests = [
 ]
 
 
-def validator(rotate, inputs, expected):
+def validator(
+        rotate: Callable[[list[int], int], None],
+        inputs: tuple[list[int], int],
+        expected: list[int]
+) -> None:
     nums, k = inputs
     rotate(nums, k)
     assert nums == expected, (nums, expected)

@@ -1,4 +1,5 @@
 from collections import Counter
+from typing import Callable
 
 
 class Solution:
@@ -25,7 +26,11 @@ tests = [
 ]
 
 
-def validator(intersect, inputs, expected):
+def validator(
+    intersect: Callable[[list[int], list[int]], list[int]],
+    inputs: tuple[list[int], list[int]],
+    expected: list[int]
+) -> None:
     nums1, nums2 = inputs
     output = intersect(nums1, nums2)
     assert len(output) == len(expected), (len(output), len(expected))
