@@ -21,7 +21,8 @@ class Solution:
             if has_repeat_digits(grid):
                 return False
 
-        columns = [row[0] for row in board]
+        rows = len(board)
+        columns = [[row[i] for row in board] for i in range(rows)]
         for column in columns:
             grid = [column]
             if has_repeat_digits(grid):
