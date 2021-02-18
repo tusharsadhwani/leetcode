@@ -31,23 +31,20 @@ def get_values(node: ListNode) -> list[int]:
     return values
 
 
-def reverse_ll(head: ListNode) -> tuple[ListNode, ListNode]:
-    if head.next is None:
-        return head, head
-
-    new_head, new_tail = reverse_ll(head.next)
-    new_tail.next = head
-    head.next = None
-    return new_head, head
-
-
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None:
             return None
 
-        new_head, _ = reverse_ll(head)
-        return new_head
+        prev = head
+        curr = head.next
+        while curr is not None:
+            curr.next = prev
+            prev = curr
+            curr = curr.next
+
+        prev.next = None
+        return prev
 
 
 tests = [
