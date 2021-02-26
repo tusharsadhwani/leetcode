@@ -67,7 +67,7 @@ tests = [
 def validator(
         maxDepth: Callable[[Optional[TreeNode]], int],
         inputs: tuple[list[Optional[int]]],
-        expected: bool
+        expected: int
 ) -> None:
     values, = inputs
     tree = build_tree(values)
