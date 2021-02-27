@@ -3,16 +3,19 @@ class Solution:
         if len(nums) == 0:
             return 0
 
-        dp: list[int] = [0 for _ in nums]
+        max_loot: list[int] = [0 for _ in nums]
         for index, num in enumerate(nums):
             if index == 0:
-                dp[index] = num
+                max_loot[index] = num
             elif index == 1:
-                dp[index] = max(dp[index-1], num)
+                max_loot[index] = max(max_loot[index-1], num)
             else:
-                dp[index] = max(dp[index-1], num + dp[index-2])
+                max_loot[index] = max(
+                    max_loot[index-1],
+                    num + max_loot[index-2]
+                )
 
-        return dp[-1]
+        return max_loot[-1]
 
 
 tests = [
