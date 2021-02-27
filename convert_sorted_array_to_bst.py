@@ -1,5 +1,4 @@
-from itertools import zip_longest
-from typing import Callable, Optional
+from typing import Callable, Generator, Optional
 
 
 class TreeNode:
@@ -29,9 +28,33 @@ def build_tree(
     return node
 
 
+def make_bst(
+        nums: list[int],
+        start: Optional[int] = None,
+        end: Optional[int] = None,
+) -> Optional[TreeNode]:
+    """Recursively converts a sorted array into a binary search tree"""
+    if start is None:
+        start = 0
+    if end is None:
+        end = len(nums) - 1
+
+    if start > end:
+        return None
+
+    mid = (start + end) // 2
+    value = nums[mid]
+    node = TreeNode(value)
+
+    node.left = make_bst(nums, start, mid-1)
+    node.right = make_bst(nums, mid+1, end)
+
+    return node
+
+
 class Solution:
     def sortedArrayToBST(self, nums: list[int]) -> Optional[TreeNode]:
-        return TreeNode(1)
+        return make_bst(nums)
 
 
 tests = [
@@ -54,35 +77,31 @@ def validator(
     nums, = inputs
     tree = sortedArrayToBST(nums)
     output_tree = build_tree(output)
-    input_levels = levels(tree)
-    expected_levels = levels(output_tree)
-
-    height = len(input_levels)
-    expected_height = len(expected_levels)
+    height = max_depth(tree)
+    expected_height = max_depth(output_tree)
     assert height == expected_height, (height, expected_height)
 
-    for l1, l2 in zip(input_levels, expected_levels):
-        values, expected = set(l1), set(l2)
-        assert values == expected, (values, expected)
+    values = list(inorder(tree))
+    expected_values = list(inorder(output_tree))
+    assert values == expected_values, (values, expected_values)
 
 
-def levels(root: Optional[TreeNode]) -> list[list[int]]:
-    """Returns levels of a binary tree"""
+def max_depth(root: Optional[TreeNode], depth: int = 0) -> int:
+    """Recursive max depth of tree implementation"""
     if root is None:
-        return []
+        return depth
 
-    values: list[list[int]] = []
-    level = [root]
-    while len(level) > 0:
-        values.append([node.val for node in level])
+    return max(
+        max_depth(root.left, depth + 1),
+        max_depth(root.right, depth + 1),
+    )
 
-        new_level = []
-        for node in level:
-            if node.left:
-                new_level.append(node.left)
-            if node.right:
-                new_level.append(node.right)
 
-        level = new_level
+def inorder(root: Optional[TreeNode]) -> Generator[int, None, None]:
+    """Return tree values in inorder"""
+    if root is None:
+        return
 
-    return values
+    yield from inorder(root.left)
+    yield root.val
+    yield from inorder(root.right)
