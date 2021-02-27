@@ -14,7 +14,7 @@ class Solution:
                 for j in range(i * i, n, i):
                     primes[j] = False
 
-        return sum(primes)
+        return primes.count(True)
 
 
 tests = [
