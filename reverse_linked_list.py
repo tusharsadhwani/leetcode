@@ -39,11 +39,12 @@ class Solution:
         prev = head
         curr = head.next
         while curr is not None:
+            next_node = curr.next
             curr.next = prev
             prev = curr
-            curr = curr.next
+            curr = next_node
 
-        prev.next = None
+        head.next = None
         return prev
 
 
