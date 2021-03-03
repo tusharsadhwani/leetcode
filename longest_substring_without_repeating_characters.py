@@ -11,7 +11,7 @@ class Solution:
         while start <= stop < end:
             new_char = s[stop]
             if new_char in chars:
-                start = chars[new_char] + 1
+                start = max(start, chars[new_char] + 1)
 
             chars[new_char] = stop
 
@@ -47,5 +47,9 @@ tests = [
     (
         ("abcde",),
         5,
+    ),
+    (
+        ("abba",),
+        2,
     ),
 ]
