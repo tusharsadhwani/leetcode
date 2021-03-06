@@ -80,13 +80,13 @@ tests = [
 
 
 def validator(
-        addTwoNumbers: Callable[[Optional[ListNode]], Optional[ListNode]],
+        oddEvenList: Callable[[Optional[ListNode]], Optional[ListNode]],
         inputs: tuple[list[int]],
         expected: list[int]
 ) -> None:
     values, = inputs
     node_list = create_node_list(values) if len(values) > 0 else None
-    new_list = addTwoNumbers(node_list)
+    new_list = oddEvenList(node_list)
 
     list_values = get_values(new_list) if new_list is not None else []
     assert list_values == expected, (list_values, expected)
