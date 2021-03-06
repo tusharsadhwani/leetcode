@@ -67,9 +67,6 @@ class Solution:
         return head
 
 
-s = Solution()
-s.oddEvenList(create_node_list([2, 1, 3, 5, 6, 4, 7]))
-
 tests = [
     (
         ([1, 2, 3, 4, 5],),
