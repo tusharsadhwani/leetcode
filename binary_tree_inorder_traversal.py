@@ -1,5 +1,4 @@
-from collections import deque
-from typing import Callable, Deque, Optional
+from typing import Callable, Optional
 
 
 class TreeNode:
