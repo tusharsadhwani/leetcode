@@ -8,6 +8,7 @@ def generate_parenthesis_recursive(
     if len(parens) == 2 * max_parens:
         paren_list.append(parens)
         return
+
     if left_count < max_parens:
         generate_parenthesis_recursive(
             paren_list,
