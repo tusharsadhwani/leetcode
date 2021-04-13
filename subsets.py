@@ -1,13 +1,16 @@
-from typing import Callable
+from typing import Callable, Optional
 
 
 def subets_resursive(
         nums: list[int],
         ans: list[list[int]],
         start: int = 0,
-        curr: list[int] = []
+        curr: Optional[list[int]] = None
 ) -> None:
     """Recursive implementation of subsets using backtracking"""
+    if curr is None:
+        curr = []
+
     ans.append(curr[:])
     n = len(nums)
     for i in range(start, n):
