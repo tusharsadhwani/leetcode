@@ -22,7 +22,6 @@ def quicksort(
         - swap number on left with number on right
     - Now, run quicksort on the two halves
     """
-
     if start is None:
         start = 0
     if end is None:
@@ -42,12 +41,6 @@ def quicksort(
         i += 1
 
     new_pivot = pivot + smaller
-
-    # Important edge case:
-    # bigger can become as big as the current slice length.
-    # Don't want it to go beyond.
-    if new_pivot > end:
-        new_pivot = end
 
     nums[pivot], nums[new_pivot] = nums[new_pivot], nums[pivot]
     pivot = new_pivot
