@@ -21,6 +21,8 @@ def quicksort(
         - Set right to that number's index
         - swap number on left with number on right
     - Now, run quicksort on the two halves
+
+    For other algorithms: https://wikipedia.org/wiki/Quicksort#Algorithm
     """
     if start is None:
         start = 0
