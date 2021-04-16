@@ -6,7 +6,23 @@ def quicksort(
     start: Optional[int] = None,
     end: Optional[int] = None,
 ) -> None:
-    """In-place quick sort"""
+    """
+    In-place quick sort implementation.
+
+    Algorithm:
+    - Choose the first number to be pivot
+    - Find out the correct place of pivot.
+      Pivot must be at the lowest possible position it can get to, i.e.
+      if another num == pivot, pivot should be positioned before num.
+    - Swap pivot with its correct position
+    - right = pivot's index + 1
+    - For every number >= pivot on its left:
+        - Find a number < pivot with index > right
+        - Set right to that number's index
+        - swap number on left with number on right
+    - Now, run quicksort on the two halves
+    """
+
     if start is None:
         start = 0
     if end is None:
@@ -40,18 +56,18 @@ def quicksort(
     # Now, pivot is in the correct place.
     # Time to move all larger numbers to the right
     right = pivot + 1
-    i = start
-    while i < pivot:
-        num = nums[i]
+    left = start
+    while left < pivot:
+        num = nums[left]
         if num < pivot_num:
-            i += 1
+            left += 1
             continue
 
         while right < len(nums) - 1 and nums[right] >= pivot_num:
             right += 1
 
-        nums[i], nums[right] = nums[right], nums[i]
-        i += 1
+        nums[left], nums[right] = nums[right], nums[left]
+        left += 1
 
     # Finally, run quicksort on the two halves
     quicksort(nums, start, pivot-1)
