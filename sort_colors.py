@@ -121,6 +121,3 @@ def validator(
     nums = nums.copy()
     sortColors(nums)
     assert nums == expected, (nums, expected)
-
-
-Solution().sortColors([1, 2, 2, 2, 2, 0, 0, 0, 1, 1])
