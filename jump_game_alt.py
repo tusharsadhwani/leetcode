@@ -1,14 +1,12 @@
 class Solution:
     def canJump(self, nums: list[int]) -> bool:
         nums.pop()  # don't care about last number at all in this case
-        max_jump_distance = 0
+        max_reach = 0
 
-        for index, jump in enumerate(nums):
-            max_jump = max(jump, max_jump_distance-1)
-            if max_jump == 0:
+        for jump in nums:
+            max_reach = max(jump, max_reach-1)
+            if max_reach == 0:
                 return False
-
-            max_jump_distance = max_jump
 
         return True
 
