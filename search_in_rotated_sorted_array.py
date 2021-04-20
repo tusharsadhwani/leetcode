@@ -3,12 +3,13 @@ def binary_search(
         target: int,
         start: int,
         end: int,
-        start_index: int
+        shift: int
 ) -> int:
     """Binary search implementation"""
+    size = len(nums)
     while start <= end:
         mid = (start + end) // 2
-        rotated_index = get_rotated_index(start_index, len(nums), mid)
+        rotated_index = get_rotated_index(shift, size, mid)
         mid_num = nums[rotated_index]
 
         if mid_num == target:
