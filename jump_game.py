@@ -1,6 +1,6 @@
 class Solution:
     def canJump(self, nums: list[int]) -> bool:
-        nums.pop()
+        nums.pop()  # don't care about last number at all in this case
         max_jump_distances = [0 for _ in nums]
 
         for index, jump in enumerate(nums):
