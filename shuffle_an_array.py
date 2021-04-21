@@ -32,13 +32,10 @@ tests = [
 def validator(
         shuffle: Callable[[list[int]], list[int]],
         inputs: tuple[list[int]],
-        expected: None,
+        _: None,
 ) -> None:
     nums, = inputs
     shuffled = shuffle(nums)
-    shuffled2 = shuffle(nums)
-    assert nums != shuffled, (nums, shuffled)
-    assert nums != shuffled2, (nums, shuffled2)
     assert len(nums) == len(shuffled), (len(nums), len(shuffled))
     nums_set, shuffled_set = set(nums), set(shuffled)
     assert nums_set == shuffled_set
