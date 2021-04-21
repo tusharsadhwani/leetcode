@@ -1,6 +1,6 @@
 from typing import Deque, Generator, Optional
 from collections import deque
-from utils.trees import TreeNode, build_tree
+from testutils.trees import TreeNode, build_tree
 
 
 class Solution:
