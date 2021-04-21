@@ -1,31 +1,5 @@
 from typing import Callable, Optional
-
-
-class TreeNode:
-    def __init__(self, val: int):
-        self.val = val
-        self.left: Optional[TreeNode] = None
-        self.right: Optional[TreeNode] = None
-
-
-def build_tree(
-        values: list[Optional[int]],
-        index: int = 0
-) -> Optional[TreeNode]:
-    """Builds tree out of given values"""
-    length = len(values)
-    if index >= length:
-        return None
-
-    value = values[index]
-    if value is None:
-        return None
-
-    node = TreeNode(value)
-    node.left = build_tree(values, 2*index + 1)
-    node.right = build_tree(values, 2*index + 2)
-
-    return node
+from utils.trees import TreeNode, build_tree
 
 
 class Solution:
@@ -55,7 +29,7 @@ class Solution:
 
 tests = [
     (
-        ([1, None, 2, None, None, 3],),
+        ([1, None, 2, 3],),
         [1, 3, 2],
     ),
     (
@@ -65,6 +39,14 @@ tests = [
     (
         ([1],),
         [1],
+    ),
+    (
+        ([1, 2],),
+        [2, 1],
+    ),
+    (
+        ([1, None, 2],),
+        [1, 2],
     ),
 ]
 

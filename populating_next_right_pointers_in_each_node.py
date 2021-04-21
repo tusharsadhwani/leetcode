@@ -1,4 +1,5 @@
-from typing import Callable, Optional
+from typing import Callable, Deque, Optional
+from collections import deque
 
 
 class Node:
@@ -18,24 +19,38 @@ class Node:
         return f'Node({self.val!r})'
 
 
-def build_tree(
-        values: list[Optional[int]],
-        index: int = 0
-) -> Optional[Node]:
+def build_tree(values: list[Optional[int]]) -> Optional[Node]:
     """Builds tree out of given values"""
-    length = len(values)
-    if index >= length:
+    if len(values) == 0:
         return None
 
-    value = values[index]
-    if value is None:
+    if values[0] is None:
         return None
 
-    node = Node(value)
-    node.left = build_tree(values, 2*index + 1)
-    node.right = build_tree(values, 2*index + 2)
+    root = Node(values[0])
+    queue: Deque[Node] = deque()
 
-    return node
+    current_node = root
+    children_assigned = 0
+    for num in values[1:]:
+        value = None if num is None else Node(num)
+
+        if children_assigned == 2:
+            current_node = queue.popleft()
+            children_assigned = 0
+
+        if children_assigned == 0:
+            current_node.left = value
+
+        elif children_assigned == 1:
+            current_node.right = value
+
+        if value is not None:
+            queue.append(value)
+
+        children_assigned += 1
+
+    return root
 
 
 class Solution:
