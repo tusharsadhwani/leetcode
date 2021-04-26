@@ -25,9 +25,9 @@ class RandomizedSet:
         return False
 
     def getRandom(self) -> int:
-        # simulated randomness, sadly python sets are ordered now
-        for _ in range(random.randint(0, 10)):
-            self.set.add(self.set.pop())
+        # # simulated randomness, sadly python sets are ordered now
+        # for _ in range(random.randint(0, 10)):
+        self.set.add(self.set.pop())
 
         val = self.set.pop()
         self.set.add(val)
