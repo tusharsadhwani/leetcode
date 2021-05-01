@@ -48,7 +48,6 @@ tests = [
         ),
         [True, False, True, 2, True, False, 2],
     ),
-
 ]
 
 
