@@ -1,9 +1,11 @@
 # leetcode
 
-My set of leetcode solutions, written in mypy (statically type-checked Python)
+My set of leetcode solutions, written in type-checked Python.
 
-They're all checked by mypy strict-mode, so you can be sure that all types are
+They're all checked by mypy in strict-mode, so you can be sure that all types are
 correct.
+
+The types use syntax from Python 3.9+
 
 ## Testing
 
