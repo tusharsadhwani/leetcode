@@ -1,7 +1,7 @@
 import sys
 
 
-def merge(list1: list[int], list2: list[int]) -> None:
+def merge(list1: list[int], list2: list[int]) -> list[int]:
     output: list[int] = []
     index1, index2 = 0, 0
     while index1 < len(list1) and index2 < len(list2):
