@@ -1,3 +1,6 @@
+from typing import Callable
+
+
 class Solution:
     def sortArrayByParity(self, nums: list[int]) -> list[int]:
         for index, num in enumerate(nums):
@@ -34,5 +37,9 @@ tests = [
 ]
 
 
-def validator(method, inputs, expected):
+def validator(
+        method: Callable[[list[int]], list[int]],
+        inputs: tuple[list[int]],
+        expected: list[int],
+) -> None:
     pass  # TODO
