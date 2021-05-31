@@ -12,25 +12,17 @@ class Solution:
         if root is None:
             return True
 
-        if min_val and root.val <= min_val:
+        if min_val is not None and root.val <= min_val:
             return False
 
-        if max_val and root.val >= max_val:
+        if max_val is not None and root.val >= max_val:
             return False
 
-        if root.left is not None:
-            if root.left.val >= root.val:
-                return False
+        if root.left and not self.isValidBST(root.left, min_val, root.val):
+            return False
 
-            if not self.isValidBST(root.left, min_val, root.val):
-                return False
-
-        if root.right is not None:
-            if root.right.val <= root.val:
-                return False
-
-            if not self.isValidBST(root.right, root.val, max_val):
-                return False
+        if root.right and not self.isValidBST(root.right, root.val, max_val):
+            return False
 
         return True
 
