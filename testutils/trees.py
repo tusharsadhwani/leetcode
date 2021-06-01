@@ -54,3 +54,12 @@ def traverse(node: Optional[TreeNode]) -> Generator[TreeNode, None, None]:
     yield from traverse(node.left)
     yield node
     yield from traverse(node.right)
+
+
+def find(root: TreeNode, value: int) -> TreeNode:
+    """Returns the node with given value"""
+    for node in traverse(root):
+        if node.val == value:
+            return node
+
+    raise ValueError('Node not found')
