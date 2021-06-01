@@ -1,5 +1,5 @@
-from typing import Callable, Generator, Optional
-from testutils.trees import TreeNode, build_tree
+from typing import Callable, Optional
+from testutils.trees import TreeNode, build_tree, traverse
 
 
 class Solution:
@@ -56,16 +56,6 @@ def validator(
     tree = buildTree(preorder, inorder)
     expected_tree = build_tree(expected)
 
-    tree_values = list(traverse(tree))
-    expected_values = list(traverse(expected_tree))
+    tree_values = [node.val for node in traverse(tree)]
+    expected_values = [node.val for node in traverse(expected_tree)]
     assert tree_values == expected_values, (tree_values, expected_values)
-
-
-def traverse(root: Optional[TreeNode]) -> Generator[int, None, None]:
-    """Return tree values in inorder"""
-    if root is None:
-        return
-
-    yield from traverse(root.left)
-    yield root.val
-    yield from traverse(root.right)

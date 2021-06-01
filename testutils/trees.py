@@ -1,5 +1,5 @@
-from typing import Optional, Deque
 from collections import deque
+from typing import Deque, Generator, Optional
 
 
 class TreeNode:
@@ -44,3 +44,13 @@ def build_tree(values: list[Optional[int]]) -> Optional[TreeNode]:
         children_assigned += 1
 
     return root
+
+
+def traverse(node: Optional[TreeNode]) -> Generator[TreeNode, None, None]:
+    """Return tree values in inorder"""
+    if node is None:
+        return
+
+    yield from traverse(node.left)
+    yield node
+    yield from traverse(node.right)
