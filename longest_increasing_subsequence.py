@@ -1,17 +1,17 @@
 class Solution:
     def lengthOfLIS(self, nums: list[int]) -> int:
-        dp = [0 for _ in nums]
-        ans = 0
+        longest_per_index = [0 for _ in nums]
+        longest_so_far = 0
         for i in range(len(nums)):
             max_length = 0
             for j in range(i):
                 if nums[i] > nums[j]:
-                    max_length = max(max_length, dp[j])
+                    max_length = max(max_length, longest_per_index[j])
 
-            dp[i] = 1 + max_length
-            ans = max(ans, dp[i])
+            longest_per_index[i] = 1 + max_length
+            longest_so_far = max(longest_so_far, longest_per_index[i])
 
-        return ans
+        return longest_so_far
 
 
 tests = [
