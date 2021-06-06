@@ -12,7 +12,6 @@ class Solution:
 
     def shuffle(self, nums: list[int]) -> list[int]:
         """Returns a random shuffling of the array."""
-        nums = nums.copy()
         length = len(nums)
         for index in range(length):
             random_index = random.randrange(length)

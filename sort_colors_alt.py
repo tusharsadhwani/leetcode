@@ -70,6 +70,5 @@ def validator(
     expected: list[int]
 ) -> None:
     nums, = inputs
-    nums = nums.copy()
     sortColors(nums)
     assert nums == expected, (nums, expected)

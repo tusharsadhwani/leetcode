@@ -32,7 +32,6 @@ def validator(
         expected: list[int],
 ) -> None:
     nums, val = inputs
-    nums = nums.copy()
 
     length = removeElement(nums, val)
     assert length == len(expected), (length, len(expected))

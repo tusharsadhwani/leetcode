@@ -33,7 +33,5 @@ def validator(
         expected: list[int],
 ) -> None:
     arr, = inputs
-
-    output = arr.copy()
-    duplicateZeros(output)
-    assert output == expected, (output, expected)
+    duplicateZeros(arr)
+    assert arr == expected, (arr, expected)

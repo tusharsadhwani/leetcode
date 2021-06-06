@@ -59,6 +59,5 @@ def validator(
         expected: list[list[int]]
 ) -> None:
     matrix, = inputs
-    matrix = [row.copy() for row in matrix]
     setZeroes(matrix)
     assert matrix == expected, (matrix, expected)
