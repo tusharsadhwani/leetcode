@@ -8,7 +8,7 @@ class Solution:
         while i >= 0 and nums[i] >= nums[i+1]:
             i -= 1
 
-        # If found, swap it with rightmost number smaller than it
+        # If found, swap it with rightmost number bigger than it
         if i >= 0:
             j = len(nums) - 1
             while j > i and nums[j] <= nums[i]:
@@ -17,6 +17,7 @@ class Solution:
             nums[i], nums[j] = nums[j], nums[i]
 
         # Reverse the rest of the array
+        # Note that i could be -1, which would flip the whole array.
         start, end = i + 1, len(nums) - 1
         while start < end:
             nums[start], nums[end] = nums[end], nums[start]
