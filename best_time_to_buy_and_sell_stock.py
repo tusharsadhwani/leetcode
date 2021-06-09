@@ -1,6 +1,3 @@
-from typing import Optional
-
-
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         max_price = prices[-1]
