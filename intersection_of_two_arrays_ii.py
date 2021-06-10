@@ -7,7 +7,7 @@ class Solution:
         num_counter = Counter(nums1)
         intersection: list[int] = []
         for num in nums2:
-            if num_counter[num]:
+            if num_counter[num] > 0:
                 intersection.append(num)
                 num_counter[num] -= 1
 
