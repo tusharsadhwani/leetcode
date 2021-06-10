@@ -4,11 +4,17 @@ from typing import Callable
 class Solution:
     def sortArrayByParityII(self, nums: list[int]) -> list[int]:
         evens, odds = 0, 1
-        while evens < len(nums):
-            while nums[evens] % 2 != 0:
-                nums[evens], nums[odds] = nums[odds], nums[evens]
+        end = len(nums)
+        while evens < end and odds < end:
+            if nums[evens] % 2 == 0:
+                evens += 2
+            elif nums[odds] % 2 != 0:
                 odds += 2
-            evens += 2
+            else:
+                nums[evens], nums[odds] = nums[odds], nums[evens]
+                evens += 2
+                odds += 2
+
         return nums
 
 
