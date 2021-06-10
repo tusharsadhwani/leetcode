@@ -3,6 +3,8 @@ from typing import Callable
 
 class Solution:
     def sortArrayByParityII(self, nums: list[int]) -> list[int]:
+        # Crucial lesson: 2 pointer approach doesn't necessarily mean
+        # the pointers should start at opposite ends of the array.
         evens, odds = 0, 1
         end = len(nums)
         while evens < end and odds < end:
