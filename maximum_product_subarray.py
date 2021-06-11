@@ -1,5 +1,6 @@
 class Solution:
     def maxProduct(self, nums: list[int]) -> int:
+        # current_X is the largest/smallest value of subarray ending at current index
         current_max = current_min = nums[0]
         largest = nums[0]
         for num in nums[1:]:
