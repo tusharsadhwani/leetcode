@@ -1,5 +1,5 @@
 class Solution:
-    def longestConsecutive(self, nums):
+    def longestConsecutive(self, nums: list[int]) -> int:
         longest_streak = 0
         num_set = set(nums)
 
