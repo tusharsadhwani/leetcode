@@ -13,6 +13,8 @@ class Solution:
                 continue
 
             # NOTE: count checks must come AFTER candidate == num checks
+            # to ensure we're not adding the count of an already existing
+            # candidate to the a new number instead.
             if count1 == 0:
                 candidate1 = num
                 count1 += 1
