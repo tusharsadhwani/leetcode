@@ -4,6 +4,7 @@ class Solution:
 
         result: list[tuple[int, int, int]] = []
         for index, num in enumerate(nums):
+            # Checking if num is duplicate
             if index > 0 and num == nums[index - 1]:
                 continue
 
@@ -19,8 +20,9 @@ class Solution:
 
                 else:
                     result.append((num, nums[left], nums[right]))
+                    # Prevent duplicates
                     left += 1
-                    while nums[left] == nums[left - 1] and left < right:
+                    while left < right and nums[left] == nums[left - 1]:
                         left += 1
 
         return result
