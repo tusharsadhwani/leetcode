@@ -1,6 +1,7 @@
 class Solution:
     def coinChange(self, coins: list[int], amount: int) -> int:
         coins_needed = [0 for _ in range(amount+1)]
+
         for amt in range(1, amount+1):
             min_coins_needed = -1
 
@@ -40,5 +41,9 @@ tests = [
     (
         ([1], 2,),
         2,
+    ),
+    (
+        ([186, 419, 83, 408], 6249),
+        20,
     ),
 ]
