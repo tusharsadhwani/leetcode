@@ -11,9 +11,12 @@ class Solution:
                     continue
 
                 coins_for_rest = coins_needed[rest_amount]
+                # if it is -1, that means there's no way to create said amount from the coins
                 if coins_for_rest == -1:
                     continue
 
+                # Base case: no previous coin count found for rest_amount,
+                # so set min_coins needed and don't run min(...)
                 if min_coins_needed == -1:
                     min_coins_needed = coins_for_rest + 1
                     continue
