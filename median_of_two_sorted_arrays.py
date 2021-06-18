@@ -3,6 +3,9 @@
 # https://medium.com/@hazemu/finding-the-median-of-2-sorted-arrays-in-logarithmic-time-1d3f2ecbeb46
 # BTW the guy never did binary search in his solution.
 
+from typing import Callable
+
+
 class Solution:
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
         length = len(nums1) + len(nums2)
@@ -100,3 +103,11 @@ tests = [
         2,
     ),
 ]
+
+
+def validator(
+    findMedianSortedArrays: Callable[[list[int], list[int]], float],
+    inputs: tuple[list[int], list[int]],
+    expected: float
+) -> None:
+    pass  # TODO: fix code and remove this validator
