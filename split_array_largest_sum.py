@@ -1,4 +1,4 @@
-def is_valid(nums: list[int], m: int, mid: int):
+def is_valid(nums: list[int], m: int, mid: int) -> bool:
     # assume mid is < max(nums)
     cuts = 0
     current_sum = 0
