@@ -16,16 +16,16 @@ class Solution:
         cache[0][0] = 1
 
         # NOTE: We don't need to set the rest of cache[X][0] to zero because it is 0 by default
-        # for result in range(1, target+1):
-        #     cache[result][0] = 0
+        # for amount in range(-max_target, max_target + 1):
+        #     cache[amount][0] = 0
 
         for length in range(1, len(nums) + 1):
             num = nums[length-1]
 
             # Range of answers lies within [-max_target, max_target]
-            for result in range(-max_target, max_target + 1):
-                cache[result][length] = (
-                    cache[result+num][length-1] + cache[result-num][length-1]
+            for amount in range(-max_target, max_target + 1):
+                cache[amount][length] = (
+                    cache[amount+num][length-1] + cache[amount-num][length-1]
                 )
 
         return cache[target][length]
