@@ -5,11 +5,10 @@ class Solution:
 
         for coin in coins:
             for amt in range(coin, amount+1):
-                # Notice that in the Top-Down DP solution, combinations[amt][index] will always stay
-                # the same as  combinations[amt][index-1], unless combinations[amt-coin][index] has
-                # a non-zero value, in which case it is added to the current value.
+                # Notice that in the Top-Down DP solution, combinations[amt][index] only depends
+                # on combinations[amt-coin][index] and combinations[amt][index-1].
                 # This means that we only really care about the 1 row above us (index-1), and no
-                # other previous data. Meaning we can get away with a single row of old data.
+                # other previous data. Meaning we can get away with a single row of cache.
                 combinations[amt] += combinations[amt - coin]
 
         return combinations[amount]
