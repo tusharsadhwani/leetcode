@@ -1,69 +1,30 @@
 from collections import defaultdict
-from typing import MutableMapping, Optional
-
-## Recursion: TLE
-# import sys
-#
-# class Solution:
-#     def change(self, amount: int, coins: list[int], index: int = 0) -> int:
-#         if amount < 0:
-#             return 0
-#
-#         if amount == 0:
-#             return 1
-#
-#         if index >= len(coins):
-#             return 0
-#
-#         coin = coins[index]
-#
-#         combinations = 0
-#         # Case 1: We don't increment current coin count
-#         combinations += self.change(amount, coins, index+1)
-#
-#         # Case 2: We do increment current coin count
-#         remaining_amount = amount - coin
-#         combinations += self.change(remaining_amount, coins, index)
-#
-#         return combinations
 
 
-# Method 2: Memoization
+# Method 3: Top-Down DP
 class Solution:
-    def change(
-            self,
-            amount: int,
-            coins: list[int],
-            index: int = 0,
-            cache: Optional[MutableMapping[int, MutableMapping[int, int]]] = None,
-    ) -> int:
-        if cache is None:
-            cache = defaultdict(lambda: defaultdict(int))
+    def change(self, amount: int, coins: list[int]) -> int:
+        cache = defaultdict(lambda: defaultdict(int))
 
-        if amount < 0:
-            return 0
+        # For 0 amount, there's only one way
+        for index in range(len(coins) + 1):
+            cache[0][index] = 1
 
-        if amount == 0:
-            return 1
+        for index, coin in enumerate(coins, start=1):  # index 0 is for empty coin array
+            for amt in range(1, amount + 1):
+                combinations = 0
 
-        if index >= len(coins):
-            return 0
+                # Case 1: We don't increment current coin count
+                combinations += cache[amt][index-1]
 
-        if index in cache[amount]:
-            return cache[amount][index]
+                # Case 2: We do increment current coin count
+                remaining_amount = amt - coin
+                if remaining_amount >= 0:
+                    combinations += cache[remaining_amount][index]
 
-        coin = coins[index]
-        combinations = 0
+                cache[amt][index] = combinations
 
-        # Case 1: We don't increment current coin count
-        combinations += self.change(amount, coins, index+1, cache)
-
-        # Case 2: We do increment current coin count
-        remaining_amount = amount - coin
-        combinations += self.change(remaining_amount, coins, index, cache)
-
-        cache[amount][index] = combinations
-        return combinations
+        return cache[amount][index]
 
 
 tests = [
