@@ -5,7 +5,7 @@ class Solution:
         for word_index in words:
             word, index = word_index[:-1], int(word_index[-1])
             sorted_words[index-1] = word
-        
+
         return ' '.join(sorted_words)
 
 
