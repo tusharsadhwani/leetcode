@@ -7,7 +7,7 @@ class Solution:
     def findTargetSumWays(self, nums: list[int], target: int) -> int:
         length = len(nums)
         # NOTE: can also use a 2D array of size [2 * sum(nums) + 1][length], but very inconvenient
-        cache = defaultdict(lambda: defaultdict(int))
+        cache: defaultdict[int, defaultdict[int, int]] = defaultdict(lambda: defaultdict(int))
 
         # If the target is any larger than the sum of all numbers, answer is automatically 0
         max_target = sum(nums)

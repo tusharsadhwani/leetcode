@@ -4,7 +4,7 @@ from collections import defaultdict
 # Method 3: Top-Down DP
 class Solution:
     def change(self, amount: int, coins: list[int]) -> int:
-        cache = defaultdict(lambda: defaultdict(int))
+        cache: defaultdict[int, defaultdict[int, int]] = defaultdict(lambda: defaultdict(int))
 
         # For 0 amount, there's only one way
         for index in range(len(coins) + 1):
