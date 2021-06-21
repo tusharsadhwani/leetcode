@@ -1,7 +1,5 @@
 from collections import defaultdict
 import sys
-from typing import MutableMapping, Optional
-
 
 # # Method 1 - Recursive: Stack Overflow
 # def coin_change(coins: list[int], amount: int, index: int = 0) -> int:
@@ -28,6 +26,8 @@ from typing import MutableMapping, Optional
 
 
 # # Method 2 - Memoization: Stack Overflow
+# from typing import MutableMapping, Optional
+#
 # def coin_change(
 #         coins: list[int],
 #         amount: int,
