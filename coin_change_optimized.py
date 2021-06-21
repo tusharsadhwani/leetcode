@@ -9,7 +9,7 @@ def coin_change(coins: list[int], amount: int) -> int:
     for amt in range(1, amount+1):
         cache[amt] = sys.maxsize
 
-    for index, coin in enumerate(coins, start=1):
+    for coin in coins:
         for amt in range(1, amount + 1):
             rest_amount = amt - coin
 
