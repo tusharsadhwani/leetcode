@@ -5,7 +5,6 @@ import sys
 # Method 4 - Top Down DP, optimized
 def coin_change(coins: list[int], amount: int) -> int:
     cache: defaultdict[int, int] = defaultdict(int)
-    length = len(coins)
 
     for amt in range(1, amount+1):
         cache[amt] = sys.maxsize
