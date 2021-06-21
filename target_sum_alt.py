@@ -24,6 +24,9 @@ class Solution:
 
             # Range of answers lies within [-max_target, max_target]
             for amount in range(-max_target, max_target + 1):
+                # We don't need to worry about previous values not being setup yet, because we're
+                # only reading values from the previous column (index-1) so we always have the
+                # entire previous data ready.
                 cache[amount][length] = (
                     cache[amount+num][length-1] + cache[amount-num][length-1]
                 )
