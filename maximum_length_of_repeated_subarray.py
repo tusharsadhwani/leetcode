@@ -66,10 +66,11 @@ class Solution:
 
         for index1, num1 in enumerate(nums1, start=1):
             for index2, num2 in enumerate(nums2, start=1):
-                if num1 == num2:
-                    cache[index1][index2] = cache[index1-1][index2-1] + 1
-                else:
-                    cache[index1][index2] = 0
+                if num1 != num2:
+                    # default value for an index is already zero
+                    continue
+
+                cache[index1][index2] = cache[index1-1][index2-1] + 1
 
         return max(val for row in cache.values() for val in row.values())
 
