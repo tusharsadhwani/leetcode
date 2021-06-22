@@ -2,7 +2,7 @@ from collections import defaultdict
 import sys
 
 
-# Method 4 - Top Down DP, optimized
+# Method 4 - Bottom-up DP, optimized
 def coin_change(coins: list[int], amount: int) -> int:
     cache: defaultdict[int, int] = defaultdict(int)
 

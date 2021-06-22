@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-# Method 3 - Top Down DP
+# Method 3 - Bottom-up DP
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         cache: defaultdict[int, defaultdict[int, int]] = defaultdict(lambda: defaultdict(int))

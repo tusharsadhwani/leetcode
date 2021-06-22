@@ -63,7 +63,7 @@ import sys
 #     return min_coin_count
 
 
-# Method 3 - Top Down DP
+# Method 3 - Bottom-up DP
 def coin_change(coins: list[int], amount: int) -> int:
     cache: defaultdict[int, defaultdict[int, int]] = defaultdict(lambda: defaultdict(int))
     length = len(coins)

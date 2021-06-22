@@ -26,7 +26,7 @@ from typing import MutableMapping, Optional
 #         )
 
 
-# Method 2 - Memoization
+# Method 2 - Memoization, Top-down DP
 class Solution:
     def longestCommonSubsequence(
             self,
