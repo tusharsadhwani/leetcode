@@ -37,7 +37,7 @@ class Solution:
             cache: Optional[MutableMapping[int, MutableMapping[int, int]]] = None,
     ) -> int:
         if cache is None:
-            cache: defaultdict[int, defaultdict[int, int]] = defaultdict(lambda: defaultdict(int))
+            cache = defaultdict(lambda: defaultdict(int))
 
         # Base case: empty string
         if index1 >= len(text1) or index2 >= len(text2):
