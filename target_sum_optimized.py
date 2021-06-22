@@ -2,7 +2,7 @@ from collections import defaultdict
 
 
 class Solution:
-    """Method 4: Top-down DP, optimized"""
+    """Method 4: Bottom-up DP, optimized"""
 
     def findTargetSumWays(self, nums: list[int], target: int) -> int:
         length = len(nums)

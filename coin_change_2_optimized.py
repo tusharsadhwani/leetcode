@@ -1,3 +1,4 @@
+# Method 4 - Bottom-up DP, optimized
 class Solution:
     def change(self, amount: int, coins: list[int]) -> int:
         combinations = [0 for _ in range(amount + 1)]
@@ -5,7 +6,7 @@ class Solution:
 
         for coin in coins:
             for amt in range(coin, amount+1):
-                # Notice that in the Top-Down DP solution, combinations[amt][index] only depends
+                # Notice that in the Bottom-up DP solution, combinations[amt][index] only depends
                 # on combinations[amt-coin][index] and combinations[amt][index-1].
                 # This means that we only really care about the 1 row above us (index-1), and no
                 # other previous data. Meaning we can get away with a single row of cache.

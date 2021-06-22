@@ -2,7 +2,7 @@ from collections import defaultdict
 
 
 class Solution:
-    """Method 3: Top-down DP (no recursion)"""
+    """Method 3: Bottom-up DP (no recursion)"""
 
     def findTargetSumWays(self, nums: list[int], target: int) -> int:
         length = len(nums)
