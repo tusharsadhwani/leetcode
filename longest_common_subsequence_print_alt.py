@@ -24,6 +24,7 @@ class Solution:
         answer_reverse = ''
         index1, index2 = len(text1), len(text2)
         while index1 > 0 and index2 > 0:
+            # Since cache indices go from 1 to N instead of 0 to N-1, we have to subtract 1
             if text1[index1-1] == text2[index2-1]:
                 answer_reverse += text1[index1-1]
                 index1 -= 1
