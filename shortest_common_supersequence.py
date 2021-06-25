@@ -101,10 +101,14 @@ from collections import defaultdict
 # Method 4 - Bottom-up DP, optimized
 class Solution:
     def shortestCommonSupersequence(self, str1: str, str2: str) -> str:
-        # cache: MutableMapping[int, MutableMapping[int, str]] = defaultdict(lambda: defaultdict(str))
+        # Instead of [index1], you use cache
+        # Instead of [index1-1], you use prev_cache
+
+        # First row initialization
         prev_cache: list[str] = [str2[:index2] for index2 in range(len(str2)+1)]
 
         for index1, char1 in enumerate(str1, start=1):
+            # First column initialization
             cache = ['' for _ in range(len(str2)+1)]
             cache[0] = str1[:index1]
 
@@ -114,8 +118,8 @@ class Solution:
                     continue
 
                 cache[index2] = min(
-                    cache[index2-1] + char2,
-                    prev_cache[index2] + char1,
+                    cache[index2-1] + char2,     # Instead of [index1][index2-1]
+                    prev_cache[index2] + char1,  # Instead of [index1-1][index2]
                     key=len
                 )
 
