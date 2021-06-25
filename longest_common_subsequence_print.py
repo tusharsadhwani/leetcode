@@ -3,7 +3,7 @@ from collections import defaultdict
 
 # Printing the largest subsequence using the alt-Solution
 class Solution:
-    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> str:
         cache: defaultdict[int, defaultdict[int, str]] = defaultdict(lambda: defaultdict(str))
 
         for index1, char1 in enumerate(text1, start=1):
