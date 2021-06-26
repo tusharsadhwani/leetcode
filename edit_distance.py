@@ -10,16 +10,16 @@
 #         # Base cases
 #         if index1 >= len(word1):
 #             return len(word2) - index2
-
+#
 #         if index2 >= len(word2):
 #             return len(word1) - index1
-
+#
 #         char1 = word1[index1]
 #         char2 = word2[index2]
-
+#
 #         if char1 == char2:
 #             return self.minDistance(word1, word2, index1+1, index2+1)
-
+#
 #         # We're going from word1 to word2, and we have 3 options:
 #         return min(
 #             # Delete char1
