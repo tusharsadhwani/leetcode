@@ -123,6 +123,7 @@ class Solution:
                     key=len
                 )
 
+            # Don't forget to set the current row as previous row
             prev_cache = cache
 
         return cache[-1]
