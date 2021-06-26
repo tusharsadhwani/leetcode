@@ -108,8 +108,8 @@ class Solution:
         prev_cache: list[str] = [str2[:index2] for index2 in range(len(str2)+1)]
 
         for index1, char1 in enumerate(str1, start=1):
-            # First column initialization
             cache = ['' for _ in range(len(str2)+1)]
+            # First column initialization
             cache[0] = str1[:index1]
 
             for index2, char2 in enumerate(str2, start=1):

@@ -8,8 +8,8 @@ class Solution:
         prev_cache = [index2 for index2 in range(len(word2)+1)]
 
         for index1, char1 in enumerate(word1, start=1):
-            # First column initialization
             cache = [0 for _ in range(len(word2)+1)]
+            # First column initialization
             cache[0] = index1
 
             for index2, char2 in enumerate(word2, start=1):
