@@ -7,7 +7,7 @@
 #             index1: int = 0,
 #             index2: int = 0,
 #     ) -> int:
-#         # Base cases
+#         # Base cases: if one word is empty, the answer is the length of the other word
 #         if index1 >= len(word1):
 #             return len(word2) - index2
 #
@@ -48,7 +48,7 @@ class Solution:
         if cache is None:
             cache = defaultdict(lambda: defaultdict(int))
 
-        # Base cases
+        # Base cases: if one word is empty, the answer is the length of the other word
         if index1 >= len(word1):
             return len(word2) - index2
 
