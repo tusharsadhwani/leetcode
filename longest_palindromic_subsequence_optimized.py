@@ -39,10 +39,7 @@ class Solution:
                 if char1 == char2:
                     result = 2 + prev_cache[index2-1]
                 else:
-                    result = max(
-                        cache[index2-1],
-                        prev_cache[index2],
-                    )
+                    result = max(cache[index2-1], prev_cache[index2])
 
                 cache[index2] = result
 
