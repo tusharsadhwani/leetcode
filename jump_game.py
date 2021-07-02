@@ -1,6 +1,7 @@
 class Solution:
     def canJump(self, nums: list[int]) -> bool:
-        nums.pop()  # don't care about last number at all in this case
+        # As we just need to reach last index, the number at last position doesn't matter
+        nums.pop()
 
         # Represents the number of elements ahead we can jump from current index
         max_reach = 0
