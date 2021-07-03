@@ -1,7 +1,12 @@
 from typing import Callable
 
 
-def is_valid(board, row, col, num):
+def is_valid(
+        board: list[list[str]],
+        row: int,
+        col: int,
+        num: str,
+) -> bool:
     # Row check
     for i in range(9):
         if board[i][col] == num:
@@ -74,7 +79,7 @@ tests = [
 
 def validator(
         solveSudoku: Callable[[list[list[str]]], bool],
-        inputs: list[list[str]],
+        inputs: tuple[list[list[str]]],
         expected: list[list[str]],
 ) -> None:
     board, = inputs
