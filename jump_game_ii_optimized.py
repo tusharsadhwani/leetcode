@@ -19,6 +19,11 @@ class Solution(object):
                 jumps += 1
                 current_jump_max = next_jump_max
 
+                # Optional optimization: if current_jump_max is already
+                # bigger than maximum index, we don't need to iterate any further
+                if current_jump_max >= len(nums):
+                    break
+
         return jumps
 
 
