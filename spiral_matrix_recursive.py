@@ -7,16 +7,16 @@ def spiral_layer(
 ) -> list[int]:
     """Traverses one layer of the matrix spiral into a list"""
     ans = []
-    for col in range(left, right + 1):
+    for col in range(left, right+1):
         ans.append(matrix[top][col])
 
-    for row in range(top + 1, bottom):
+    for row in range(top+1, bottom):
         ans.append(matrix[row][right])
 
-    for col in range(right, left - 1, -1):
+    for col in range(right, left-1, -1):
         ans.append(matrix[bottom][col])
 
-    for row in range(bottom - 1, top, -1):
+    for row in range(bottom-1, top, -1):
         ans.append(matrix[row][left])
 
     return ans
@@ -39,9 +39,9 @@ class Solution:
             right -= 1
 
         if top == bottom:
-            ans.extend([matrix[top][col] for col in range(left, right + 1)])
+            ans.extend([matrix[top][col] for col in range(left, right+1)])
         elif left == right:
-            ans.extend([matrix[row][left] for row in range(top, bottom + 1)])
+            ans.extend([matrix[row][left] for row in range(top, bottom+1)])
 
         return ans
 
