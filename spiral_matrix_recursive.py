@@ -27,23 +27,23 @@ class Solution:
         if len(matrix) == 0:
             return []
 
-        elements = []
+        ans: list[int] = []
         top, bottom = 0, len(matrix) - 1
         left, right = 0, len(matrix[0]) - 1
 
         while top < bottom and left < right:
-            elements.extend(spiral_layer(top, bottom, left, right, matrix))
+            ans.extend(spiral_layer(top, bottom, left, right, matrix))
             top += 1
             bottom -= 1
             left += 1
             right -= 1
 
         if top == bottom:
-            elements.extend([matrix[top][col] for col in range(left, right + 1)])
+            ans.extend([matrix[top][col] for col in range(left, right + 1)])
         elif left == right:
-            elements.extend([matrix[row][left] for row in range(top, bottom + 1)])
+            ans.extend([matrix[row][left] for row in range(top, bottom + 1)])
 
-        return elements
+        return ans
 
 
 tests = [

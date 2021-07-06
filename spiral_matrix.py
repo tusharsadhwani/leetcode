@@ -5,21 +5,21 @@ class Solution:
 
         ans: list[int] = []
         rows, cols = len(matrix), len(matrix[0])
-        up, down, left, right = 0, rows - 1, 0, cols - 1
-        while left < right and up < down:
-            ans.extend(matrix[up][i] for i in range(left, right))
-            ans.extend(matrix[i][right] for i in range(up, down))
-            ans.extend(matrix[down][i] for i in range(right, left, -1))
-            ans.extend(matrix[i][left] for i in range(down, up, -1))
+        top, bottom, left, right = 0, rows - 1, 0, cols - 1
+        while left < right and top < bottom:
+            ans.extend(matrix[top][i] for i in range(left, right))
+            ans.extend(matrix[i][right] for i in range(top, bottom))
+            ans.extend(matrix[bottom][i] for i in range(right, left, -1))
+            ans.extend(matrix[i][left] for i in range(bottom, top, -1))
 
-            up, down, left, right = up+1, down-1, left+1, right-1
+            top, bottom, left, right = top+1, bottom-1, left+1, right-1
 
         if left == right:
-            ans.extend(matrix[i][right] for i in range(up, down+1))
+            ans.extend(matrix[i][right] for i in range(top, bottom+1))
 
         # elif is important, to not double count the 1 center element
-        elif up == down:
-            ans.extend(matrix[up][j] for j in range(left, right+1))
+        elif top == bottom:
+            ans.extend(matrix[top][j] for j in range(left, right+1))
 
         return ans
 
