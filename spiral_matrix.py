@@ -17,7 +17,7 @@ class Solution:
         if left == right:
             ans.extend(matrix[i][right] for i in range(top, bottom+1))
 
-        # elif is important, to not double count the 1 center element
+        # elif is important, to not double count the 1 center element in a square matrix
         elif top == bottom:
             ans.extend(matrix[top][j] for j in range(left, right+1))
 
