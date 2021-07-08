@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Any, DefaultDict, Optional
+from typing import Any, Optional
 
 
 class TreeNode:
@@ -15,7 +15,7 @@ class TreeNode:
 
 class Solution:
     def findDuplicateSubtrees(self, root: TreeNode) -> list[TreeNode]:
-        trees: DefaultDict[tuple[Any, ...], list[TreeNode]] = defaultdict(list)
+        trees: defaultdict[tuple[Any, ...], list[TreeNode]] = defaultdict(list)
 
         def preorder(root: Optional[TreeNode]) -> Optional[tuple[Any, ...]]:
             if root is None:

@@ -1,6 +1,5 @@
 from collections import defaultdict
 from heapq import heappop, heappush
-from typing import DefaultDict
 
 
 ###############################################################
@@ -14,7 +13,7 @@ class Solution:
     def leastInterval(self, tasks: list[str], n: int) -> int:
         gap = n + 1
         heap: list[tuple[int, str]] = []
-        task_times: DefaultDict[str, int] = defaultdict(int)
+        task_times: defaultdict[str, int] = defaultdict(int)
         largest_time = 0
 
         for _, task in enumerate(tasks):
