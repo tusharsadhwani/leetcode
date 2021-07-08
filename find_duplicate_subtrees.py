@@ -21,7 +21,8 @@ class Solution:
             if root is None:
                 return None
 
-            preorder_tuple = root.val, preorder(root.left), preorder(root.right)
+            # this is a nested tuple of tuples that represents the whole subtree
+            preorder_tuple = (root.val, preorder(root.left), preorder(root.right))
             trees[preorder_tuple].append(root)
             return preorder_tuple
 
