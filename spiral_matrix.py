@@ -19,7 +19,7 @@ class Solution:
 
         # elif is important, to not double count the 1 center element in a square matrix
         elif top == bottom:
-            ans.extend(matrix[top][j] for j in range(left, right+1))
+            ans.extend(matrix[top][i] for i in range(left, right+1))
 
         return ans
 
