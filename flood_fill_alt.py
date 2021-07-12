@@ -5,11 +5,16 @@ class Solution:
 
         rows, cols = len(image), len(image[0])
         original_color = image[row][col]
+
         # Edge case: start color is already the same as end color
+        #
+        # NOTE: because we used visited array in other example, this
+        # edge case didn't matter because it didn't cause an infinite loop.
         if original_color == new_color:
             return image
 
-        # NOTE: visited array is not needed as we can use image itself as visit proof
+        # NOTE: visited array is not needed as we can use image pixels
+        # themselves to figure out if we have visited a cell
         def flood(row: int, col: int) -> None:
             # Base case
             if image[row][col] != original_color:
