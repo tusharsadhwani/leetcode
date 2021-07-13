@@ -1,17 +1,14 @@
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
+        # Approach: keep track of the highest price in the future,
+        # and iterate backwards to find the largest difference.
         max_price = prices[-1]
-        min_price = prices[-1]
         max_profit = 0
         for price in reversed(prices):
             if price > max_price:
                 max_price = price
-                min_price = max_price
 
-            if price < min_price:
-                min_price = price
-
-            profit = max_price - min_price
+            profit = max_price - price
             if profit > max_profit:
                 max_profit = profit
 
