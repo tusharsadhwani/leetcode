@@ -71,11 +71,11 @@ tests = [
 
 
 def validator(
-        mergeTwoLists: Callable[[ListNode], bool],
+        isPalindrome: Callable[[ListNode], bool],
         inputs: tuple[list[int]],
         expected: bool
 ) -> None:
     values, = inputs
     node_list = create_node_list(values)
-    output = mergeTwoLists(node_list)
+    output = isPalindrome(node_list)
     assert output == expected, (output, expected)
