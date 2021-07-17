@@ -1,13 +1,13 @@
 from typing import Optional
 
 
-def binary_search_greater(
+def binary_search_left(
         nums: list[int],
         target: int,
         start: Optional[int] = None,
         end: Optional[int] = None,
 ) -> int:
-    """Uses binary search to find index of smallest value above limit"""
+    """Find leftmost value equal to or greater than target"""
     if len(nums) == 0:
         return 0
 
@@ -16,18 +16,19 @@ def binary_search_greater(
     if end is None:
         end = len(nums) - 1
 
+    # Edge condition
     if target > nums[end]:
         return end + 1
 
-    if end == start:
+    if end <= start:
         return start
 
     mid = (start + end) // 2
 
     if nums[mid] < target:
-        return binary_search_greater(nums, target, mid+1, end)
+        return binary_search_left(nums, target, mid+1, end)
 
-    return binary_search_greater(nums, target, start, mid)
+    return binary_search_left(nums, target, start, mid)
 
 
 class Solution:
@@ -38,8 +39,8 @@ class Solution:
         """
         decks: list[int] = []
         for num in nums:
-            index = binary_search_greater(decks, num)
-            if index >= len(decks):
+            index = binary_search_left(decks, num)
+            if index == len(decks):
                 decks.append(num)
             else:
                 decks[index] = num
