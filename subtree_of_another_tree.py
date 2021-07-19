@@ -1,12 +1,5 @@
 from typing import Callable, Optional
-from testutils.trees import build_tree
-
-
-class TreeNode:
-    def __init__(self, val: int) -> None:
-        self.val = val
-        self.left: Optional['TreeNode'] = None
-        self.right: Optional['TreeNode'] = None
+from testutils.trees import TreeNode, build_tree
 
 
 def preorder_string(node: Optional[TreeNode]) -> str:
@@ -35,7 +28,7 @@ tests = [
 
 
 def validator(
-        isSubtree: Callable[[TreeNode, TreeNode], bool],
+        isSubtree: Callable[[Optional[TreeNode], Optional[TreeNode]], bool],
         inputs: tuple[list[Optional[int]], list[Optional[int]]],
         expected: bool,
 ) -> None:
