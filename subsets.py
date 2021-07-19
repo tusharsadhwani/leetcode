@@ -41,7 +41,7 @@ class Solution:
 
         end = len(nums)
         if index == end:
-            # Base case
+            # Ending condition: we've taken a decision for every index
             subset = prefix.copy()
             result.append(subset)
             return result
