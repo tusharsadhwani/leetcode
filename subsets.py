@@ -1,29 +1,59 @@
 from typing import Callable, Optional
 
 
-def subets_resursive(
-        nums: list[int],
-        ans: list[list[int]],
-        start: int = 0,
-        curr: Optional[list[int]] = None
-) -> None:
-    """Recursive implementation of subsets using backtracking"""
-    if curr is None:
-        curr = []
+# # Method 1 - which honestly I don't understand very well
+# class Solution:
+#     def subsets(
+#             self,
+#             nums: list[int],
+#             start: int = 0,
+#             prefix: Optional[list[int]] = None,
+#             result: Optional[list[list[int]]] = None,
+#     ) -> list[list[int]]:
+#         """Recursive implementation of subsets using backtracking"""
+#         if result is None or prefix is None:
+#             prefix, result = [], []
+#
+#         subset = prefix.copy()
+#         result.append(subset)
+#
+#         end = len(nums)
+#         for index in range(start, end):
+#             prefix.append(nums[index])
+#             self.subsets(nums, index+1, prefix, result)
+#             prefix.pop()
+#
+#         return result
 
-    ans.append(curr[:])
-    n = len(nums)
-    for i in range(start, n):
-        curr.append(nums[i])
-        subets_resursive(nums, ans, i + 1, curr)
-        curr.pop()
 
-
+# Method 2 - which I understand more easily
 class Solution:
-    def subsets(self, nums: list[int]) -> list[list[int]]:
-        ans: list[list[int]] = []
-        subets_resursive(nums, ans)
-        return ans
+    def subsets(
+            self,
+            nums: list[int],
+            index: int = 0,
+            prefix: Optional[list[int]] = None,
+            result: Optional[list[list[int]]] = None,
+    ) -> list[list[int]]:
+        """Recursive implementation of subsets using backtracking"""
+        if result is None or prefix is None:
+            prefix, result = [], []
+
+        end = len(nums)
+        if index == end:
+            # Base case
+            subset = prefix.copy()
+            result.append(subset)
+            return result
+
+        # for each index, either include the current number
+        prefix.append(nums[index])
+        self.subsets(nums, index+1, prefix, result)
+        # or don't
+        prefix.pop()
+        self.subsets(nums, index+1, prefix, result)
+
+        return result
 
 
 tests = [
