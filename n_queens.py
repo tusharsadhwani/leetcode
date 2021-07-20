@@ -41,10 +41,11 @@ class Solution:
                 return
 
             for index in range(n):
-                # resets the value at index to i. so no need to pop etc.
                 queens.append(index)
+
                 if is_valid(queens):
                     dfs(count+1)
+
                 queens.pop()
 
         dfs()
