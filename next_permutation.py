@@ -3,12 +3,15 @@ from typing import Callable
 
 class Solution:
     def nextPermutation(self, nums: list[int]) -> None:
-        # Find the rightmost number that's in ascending order
+        # Find the rightmost digit that's in ascending order
         i = len(nums) - 2
         while i >= 0 and nums[i] >= nums[i+1]:
             i -= 1
 
-        # If found, swap it with rightmost number bigger than it
+        # If found, swap it with rightmost digit bigger than it
+        # This is required to make the next larger number, because
+        # putting a larger digit in a more significant position will
+        # get us a larger number.
         if i >= 0:
             j = len(nums) - 1
             while j > i and nums[j] <= nums[i]:
@@ -16,8 +19,12 @@ class Solution:
 
             nums[i], nums[j] = nums[j], nums[i]
 
-        # Reverse the rest of the array
-        # Note that i could be -1, which would flip the whole array.
+        # Reverse the array after i+1.
+        # Why? because the rest of the array is in descending order.
+        # For the next permutation to be smallest, we need the rest of
+        # the numbers to be in ascending order.
+        # NOTE that i could be -1 in case the entire array was in
+        # descending order, in which case this would flip the whole array.
         start, end = i + 1, len(nums) - 1
         while start < end:
             nums[start], nums[end] = nums[end], nums[start]
