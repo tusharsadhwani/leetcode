@@ -35,8 +35,8 @@ class Solution:
         # [..Q.]
         # index represents row number and value represents column number
 
-        def dfs(count: int = 0) -> None:
-            if count == n:  # n queens have been placed correctly
+        def dfs() -> None:
+            if len(queens) == n:  # n queens have been placed correctly
                 boards.append(queens.copy())
                 return
 
@@ -44,7 +44,7 @@ class Solution:
                 queens.append(index)
 
                 if is_valid(queens):
-                    dfs(count+1)
+                    dfs()
 
                 queens.pop()
 
