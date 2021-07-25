@@ -1,5 +1,6 @@
 class Solution:
     def partition(self, s: str) -> list[list[str]]:
+        # TODO: add explanation, make clearer
         if len(s) == 0:
             return [[]]
 
